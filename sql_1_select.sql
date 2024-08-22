@@ -32,7 +32,7 @@ SELECT Name  from city WHERE countryCode = "bfa";
 SELECT Name, District FROM city WHERE countryCode = "tto";
 #
 # 6: Get the name and district named as nm,dist from the cities where the countrycode is "arm"
-SELECT Name as nm, District as dist from city WHERE countryCode = "arm";
+SELECT Name as nm, District dist from city WHERE countryCode = "arm";
 #
 # 7: Get the cities with a name that starts with "bor"
 SELECT name FROM city where name like "bor%";
@@ -41,23 +41,20 @@ SELECT name FROM city where name like "bor%";
 SELECT name from city WHERE name like "%orto%";
 #
 # 9: Get the cities that has a population below 1000
-SELECT name from city where population <=1000;
+SELECT name from city where population<1000;
 #
 # 10: Get the unique countrycodes from the cities that has a population below 1000
-SELECT DISTINCT countryCode from city where population <=1000; 
+SELECT DISTINCT countryCode from city where population<1000; 
 #
 # 11: Get the cities with the countrycode UKR that has more than 1000000 (one million) in population
-SELECT * from city where countryCode = "UKR" and population >= 1000000;
+SELECT * from city where countryCode = "UKR" and population>1000000;
 #
 # 12: Get the cities with a population of below 200 or above 9500000 (9.5 million)
-SELECT * from city where population <200 and population >=9500000;
+SELECT * from city where population<200 and population>9500000;
 #
 # 13: Get the cities with the countrycodes TJK, MRT, AND, PNG, SJM
-Select * from city where countryCode = 'TJK'
-or countryCode = 'MRT'
-or countryCode = 'AND'
-or countryCode = 'PNG'
-or countryCode = 'SJM'; 
+Select * from city where countryCode IN("TJK", "MRT", "AND", "PNG", "SJM");
+#
 #
 # 14: Get the cities with a population between 200 and 700 inclusive
 SELECT * from city where population between 200 and 700;
@@ -69,7 +66,7 @@ SELECT * from country where population between 8000 and 20000;
 SELECT * from country where indepyear <0;
 #
 # 17: Get the countries that has no recorded independence year and a population above 1000000
-Select * from country where indepyear is null and population >=1000000;
+Select * from country where indepyear is null and population>1000000;
 #
 # 18: Get countries with a SurfaceArea below 10 and a defined LifeExpectancy
-SELECT * from country where surfaceArea <10 and lifeExpectancy is not null;
+SELECT * from country where surfaceArea<10 and lifeExpectancy is not null;
